@@ -5,6 +5,7 @@ import {Navbar, Container, Nav} from 'react-bootstrap';
 import {Form} from 'react-bootstrap';
 import { data } from './data.js';
 import { Routes, Route, Link, useLocation } from 'react-router-dom'
+import NavSearch from './NavSearch';
 import Detail from './Detail.js';
 import MainCarousel from './MainCarousel';
 import { NavDropdown } from 'react-bootstrap';
@@ -17,8 +18,12 @@ import MapTest from './components/map/MapTest'
 import axios from 'axios';
 import { useEffect } from 'react';
 import ImageCard from './ImageCard';
-import NavSearch from './NavSearch';
 import MyPage from './pages/MyPage';
+
+// 채팅 관련 import
+import { ChakraProvider, theme } from "@chakra-ui/react";
+import Chatgpt from "./pages/chatgpt/Chatgpt";
+
 
 // 게시판 관련 import 
 import Header from './components/Header';
@@ -31,7 +36,6 @@ import MyBoardList from "./pages/myboard-list/MyBoardList";
 import AddBoard from "./pages/add-board/AddBoard";
 import EditBoard from "./pages/edit-board/EditBoard";
 
-// 채팅 관련 import 
 
 
 
@@ -41,7 +45,6 @@ function App() {
   const [travelArr, setTravelArr] = useState([])
   
   const navigate = useNavigate()
-
   const location = useLocation();
 
   const goToMyPage = ()=> {
@@ -59,9 +62,9 @@ function App() {
     navigate("/board-list") 
   }
 
-  // const goToChat =()=>{
-  //   navigate("/chat")
-  // }
+  const goToChat =()=>{
+    navigate("/chatgpt")
+  }
 
   const goToLogin =()=> {
     navigate("/login")
@@ -97,7 +100,7 @@ function App() {
             <NavDropdown.Item href="/board-list" onClick={goToBoard}>
                 여행 후기 게시판
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">실시간 채팅</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.2" onClick={goToChat}>챗봇 여행지 추천</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.3" onClick={goToMapTest}>주변 여행지 추천</NavDropdown.Item>
               
               <NavDropdown.Divider />
@@ -121,6 +124,8 @@ function App() {
       {/* ------------------------------------------ */}
 
       <Routes>
+
+        
         <Route 
         path='/' element={<div>
             <>
@@ -149,6 +154,7 @@ function App() {
 
       
         </div>}/>
+
         <Route path="/more" element={<More/>}/>
         <Route path='/MyPage' element={<MyPage/>}/>
         <Route path='/MapTest' element={<MapTest/>}/>
@@ -169,32 +175,41 @@ function App() {
           }
         />
         <Route path="/board/:board_id" element={<Board/>}/>
-        {/* <Route
+        <Route
           path="/edit-board/:board_id"
           element={
             // URI 파라미터가 존재하므로 전체 url을 PrivateRoute에 넘겨준다
             <PrivateRoute path={`${location.pathname}`} component={EditBoard}/>
           }
-        /> */}
+        />
+
+        <Route path="/more" element={<More/>}/>
+
+        <Route path="/chatgpt" element={<ChakraProvider theme={theme}>
+<Chatgpt />
+</ChakraProvider> }/>
       
       </Routes>
-
+        
     </div>
   );
 }
 
+//  <ChakraProvider theme={theme}>
+// <Chatgpt />
+// </ChakraProvider> 
 
+// function Menu(props) {
+//   return (
+//     <div className="col-md-4">
+//       <img src={"https://codingapple1.github.io/shop/shoes" + props.im + ".jpg"} width="80%" />
+//       <h4>{props.shoes.title}</h4>
+//       <p>{props.shoes.content}</p>
+//       <p>{props.shoes.price}</p>
 
-function Menu(props) {
-  return (
-    <div className="col-md-4">
-      <img src={"https://codingapple1.github.io/shop/shoes" + props.im + ".jpg"} width="80%" />
-      <h4>{props.shoes.title}</h4>
-      <p>{props.shoes.content}</p>
-      <p>{props.shoes.price}</p>
-    </div>
-  )
-}
+//     </div>
+//   )
+// }
 
 export default App;
 
