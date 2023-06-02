@@ -79,8 +79,11 @@ Formik 생성하기
 Formik은 컴포넌트 모양으로 생성해낼 수도, useFormik을 사용해서 변수에 담아 사용할 수도 있다.
 
 initialValues : form에서 관리할 값들을 모아놓는 객체
+
 validate : validation 확인 로직을 담아둔다
+
 onSubmit : submit 이벤트 발생 시 실행할 로직 기재
+
 formik를 사용하면서 validation도 Yup을 이용해 깔끔하고 처리를 하는 것과, 에러 메세지 같은 경우에도 좀 더 간결하게 처리
 
 
