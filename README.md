@@ -69,10 +69,15 @@ React 기준으로는 react-hook-form 과 함께 사용하고 있다.
 npm install formik --save
 수 많은 useState와 handler들이 만들어지는데, 이러한 것들을 좀 더 편리하고 깔끔하게 해주는 
 redux-form, react-hook-form, Formik 라이브러리
+
 Formik : 리액트에서 form control을 보다 편하게 할 수 있게 해주기 위해서 만들어진 라이브러리.
+
 회원가입 처리 등 여러가지 form을 예외처리와 함께 다뤄야 하는 경우에 매우 쉽고 깔끔하게 사용
+
 Formik 생성하기
+
 Formik은 컴포넌트 모양으로 생성해낼 수도, useFormik을 사용해서 변수에 담아 사용할 수도 있다.
+
 initialValues : form에서 관리할 값들을 모아놓는 객체
 validate : validation 확인 로직을 담아둔다
 onSubmit : submit 이벤트 발생 시 실행할 로직 기재
