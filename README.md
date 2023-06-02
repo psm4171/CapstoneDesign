@@ -10,12 +10,18 @@ Redux란?
 D->Store->A 순으로 효율적 접근이 가능  
 즉, 여러 컴포넌트를 거치지 않고 손쉽게 State를 전달하기 위해 혹은 분리해서 중앙화하기 위해 Redux를 사용
 
+## Redux 라이브러리 내장 요소 
+
 -action: state 에 어떤 변화가 필요할 때 우린 액션이란 것을 발생시키며 이는 하나의 객체
 단어 그대로 어떤 동작에 대해 선언되어진 객체
+
 -action creator:  Action 을 생성해 실제로 객체로 만들어주는 함수
+
 -reducer: State 에 변화를 일으키는 함수. 쉽게 말해 위에 만들어진 Action 등의 일거리를 
 직접 수행하는 역할 
+
 -store: State 와 Reducer 함수, 앱의 상태 트리 전체를 보관하는 Redux 저장소
+
  State 를 수시로 확인해 View 한테 변경된 사항을 알려주는 역할 
 
 -dispatch: 스토어의 내장 함수 중 하나로 리듀서에게 Action 을 발생하라고 시키는 것
@@ -25,9 +31,13 @@ dispatch(action)
 -subscribe: 구독, 스토어의 내장 함수 중 하나로 함수 형태의 값을 인자로 받는데,
 액션이 디스패치 될 때 마다 전달해준 함수를 호출
 
+
+## Redux-Persist 사용하여 Store 유지하기
+
 -npm i redux-persist
-Redux-Persist 사용하여 Store 유지하기
+
 머무르고 있는 페이지에서, useSelector로 store 상태만 가져와 사용하여 개발하던 도중, 새로 고침하면 기존의 store가 초기화되는 문제를 겪음
+
 해결 방법으로 LocalStorage와 SessionStorage의 storage를 redux에서 사용하게 해주는 Redux-Persist 라이브러리를 사용하여 해결
 
 JWT: JSON Web Token의 약자로 전자 서명된 URL-safe의 JSON
@@ -44,7 +54,8 @@ JWT는 로그인, 회원가입같이 인증이 필요한 정보를 검증할 때
 
 Nilili/src/components/main/AfterRecent.tsx
 
-Yup;
+## Yup;
+
 npm install yup --save
 yup 라이브러리는 스키마 유효성 검증이 목적이다.-> Yup은 Form validation을 위한 라이브러리이다.
 실제로는 서버쪽(Node.js) 에서 더 많이 사용된다.
@@ -53,7 +64,8 @@ React 기준으로는 react-hook-form 과 함께 사용하고 있다.
 클라이언트는 검증된 데이터를 받아야하고, 서버는 검증된 데이터를 처리해야한다.
 -->결국은 모두 유효성 검증 측면은 필수적인 기능
 
-Formik;
+## Formik;
+
 npm install formik --save
 수 많은 useState와 handler들이 만들어지는데, 이러한 것들을 좀 더 편리하고 깔끔하게 해주는 
 redux-form, react-hook-form, Formik 라이브러리
@@ -66,10 +78,6 @@ validate : validation 확인 로직을 담아둔다
 onSubmit : submit 이벤트 발생 시 실행할 로직 기재
 formik를 사용하면서 validation도 Yup을 이용해 깔끔하고 처리를 하는 것과, 에러 메세지 같은 경우에도 좀 더 간결하게 처리
 
-마이보드리스트 
-보드 
-애드 보드
-const token = useSelector(state => state.Auth.token);
 
 
 
